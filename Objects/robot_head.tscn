@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcrd16k3fyxxh"]
+
+[ext_resource type="Script" path="res://Objects/attachable_part.gd" id="1_x32qb"]
+[ext_resource type="Texture2D" uid="uid://bn54nr3q85hk1" path="res://Assets/sprites/michael.png" id="2_vxccu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bq68r"]
+size = Vector2(16, 15)
+
+[node name="RobotHead" type="Area2D"]
+monitoring = false
+monitorable = false
+script = ExtResource("1_x32qb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vxccu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_bq68r")

@@ -34,7 +34,7 @@ offset_top = 134.0
 offset_right = 458.0
 offset_bottom = 230.0
 theme_override_font_sizes/font_size = 35
-text = "by Maker's From Smiles"
+text = "by Makers From Smile's"
 
 [node name="Gmtk2024-logo" type="Sprite2D" parent="."]
 position = Vector2(710, 537)

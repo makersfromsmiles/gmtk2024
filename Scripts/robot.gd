@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 80.0
 const JUMP_VELOCITY = -200.0
-const KILL_VELOCITY_LIMIT = 400
+const KILL_VELOCITY_LIMIT = 380
 const CLIMB_VELOCITY = -250.0
 
 var mid_jump = false;
@@ -73,10 +73,10 @@ func _create_collision_bounds():
 			continue
 			
 		min_bound.x = min(min_bound.x, point.min_bound.x)
-		min_bound.y = min(min_bound.y, point.min_bound.y+1)
+		min_bound.y = min(min_bound.y, point.min_bound.y)
 		
 		max_bound.x = max(max_bound.x, point.max_bound.x)
-		max_bound.y = max(max_bound.y, point.max_bound.y+8)
+		max_bound.y = max(max_bound.y, point.max_bound.y)
 	
 	var size = max_bound - min_bound
 	var center = min_bound + size / 2

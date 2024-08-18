@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/robot.gd" id="1_oapj2"]
 [ext_resource type="PackedScene" uid="uid://cjpw2w0irieji" path="res://Objects/attachment_point.tscn" id="1_oype8"]
-[ext_resource type="PackedScene" uid="uid://dgewaysbbaekc" path="res://Objects/michael.tscn" id="1_x5h3b"]
+[ext_resource type="PackedScene" uid="uid://bcrd16k3fyxxh" path="res://Objects/robot_head.tscn" id="3_j0gc6"]
 [ext_resource type="PackedScene" uid="uid://dnomcotxkxl27" path="res://Objects/Arm Parts/arm_empty.tscn" id="4_02dj5"]
 [ext_resource type="PackedScene" uid="uid://q1avy6hab1u3" path="res://Objects/LegParts/legs_wheel.tscn" id="5_2biy8"]
 
@@ -13,7 +13,7 @@ script = ExtResource("1_oapj2")
 
 [node name="HeadPoint" parent="." instance=ExtResource("1_oype8")]
 
-[node name="Michael" parent="HeadPoint" instance=ExtResource("1_x5h3b")]
+[node name="RobotHead" parent="HeadPoint" instance=ExtResource("3_j0gc6")]
 
 [node name="ArmPointL" parent="." instance=ExtResource("1_oype8")]
 position = Vector2(-8, 0)

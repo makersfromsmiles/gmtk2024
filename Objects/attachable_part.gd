@@ -3,12 +3,14 @@ extends Area2D
 class_name AttachablePart
 
 var collision_shape
+var parent
 
 var shape
 var min_bound
 var max_bound
 
 func _ready():
+	parent = get_parent().name
 	collision_shape = get_node("CollisionShape2D")
 	if collision_shape == null:
 		return
@@ -17,8 +19,23 @@ func _ready():
 	if shape == null:
 		return
 		
-	min_bound = position - shape.size / 2
-	max_bound = position + shape.size / 2
+	min_bound = get_parent().position - shape.size / 2
+	max_bound = get_parent().position + shape.size / 2
+	
+	if check_interact(): activate()
 
-func _process(delta):
+func _physics_process(delta):
+	pass
+
+func check_interact():
+	var pressed = false
+	match parent:
+		"ArmPointL":
+			if Input.is_action_just_pressed("mouse_1"): pressed = true
+		"ArmPointR":
+			if Input.is_action_just_pressed("mouse_2"): pressed = true
+		"LegPoint":
+			if Input.is_action_just_pressed("ui_accept"): pressed = true
+
+func activate():
 	pass
