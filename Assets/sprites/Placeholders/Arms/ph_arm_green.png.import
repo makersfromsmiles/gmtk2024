@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyjqdntty4i0u"
-path="res://.godot/imported/ph_wheel.png-2a7a40fc176f72fecc3b855f4e0e5375.ctex"
+uid="uid://1u305i0s8hav"
+path="res://.godot/imported/ph_arm_green.png-154cdc7dfc003db7e5ece471bbb778d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/ph_wheel.png"
-dest_files=["res://.godot/imported/ph_wheel.png-2a7a40fc176f72fecc3b855f4e0e5375.ctex"]
+source_file="res://Assets/sprites/Placeholders/Arms/ph_arm_green.png"
+dest_files=["res://.godot/imported/ph_arm_green.png-154cdc7dfc003db7e5ece471bbb778d5.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvjv42anl6gee"
-path="res://.godot/imported/ph_arm.png-eb117432b1281dfc90bfaa831b843e80.ctex"
+uid="uid://brpnaafvg4wh6"
+path="res://.godot/imported/ph_arm_yellow.png-edd63de8dc6c503ee64f1d842b61d2de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/ph_arm.png"
-dest_files=["res://.godot/imported/ph_arm.png-eb117432b1281dfc90bfaa831b843e80.ctex"]
+source_file="res://Assets/sprites/Placeholders/Arms/ph_arm_yellow.png"
+dest_files=["res://.godot/imported/ph_arm_yellow.png-edd63de8dc6c503ee64f1d842b61d2de.ctex"]
 
 [params]
 
