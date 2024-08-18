@@ -10,6 +10,12 @@ var previous_frame_y_velocity
 
 @onready var reset_timer = $Timer
 
+func _ready():
+	var shape = CollisionShape2D.new()
+	#var legSprite = $LegPoint.$Legs.$Sprite2D
+	#shape.size = Vector2(2 + legSprite.texture.get_width(),16 + legSprite.texture.get_height())
+	shape.size = Vector2(24,24)
+	$CollisionShape2D.set_shape(shape)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
