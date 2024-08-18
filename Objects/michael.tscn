@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgewaysbbaekc"]
 
-[ext_resource type="Texture2D" uid="uid://bn54nr3q85hk1" path="res://Assets/sprites/ph_robot.png" id="1_6uefe"]
+[ext_resource type="Texture2D" uid="uid://bn54nr3q85hk1" path="res://Assets/sprites/michael.png" id="1_6uefe"]
 [ext_resource type="Script" path="res://Objects/attachable_part.gd" id="1_phe18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bq68r"]
