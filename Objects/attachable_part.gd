@@ -22,10 +22,9 @@ func _ready():
 	min_bound = get_parent().position - shape.size / 2
 	max_bound = get_parent().position + shape.size / 2
 	
-	if check_interact(): activate()
 
 func _physics_process(delta):
-	pass
+	if check_interact(): activate()
 
 func check_interact():
 	var pressed = false
@@ -36,6 +35,7 @@ func check_interact():
 			if Input.is_action_just_pressed("mouse_2"): pressed = true
 		"LegPoint":
 			if Input.is_action_just_pressed("ui_accept"): pressed = true
+	return pressed
 
 func activate():
-	pass
+	print("!")
