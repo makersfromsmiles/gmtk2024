@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjpw2w0irieji"]
+
+[ext_resource type="Script" path="res://Objects/attachment_point.gd" id="1_37uhn"]
+
+[node name="AttachmentPoint" type="Node2D"]
+script = ExtResource("1_37uhn")

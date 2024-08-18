@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 80.0
 const JUMP_VELOCITY = -200.0
 const CLIMB_VELOCITY = -250.0
@@ -15,6 +14,12 @@ var can_jump = true
 
 @onready var reset_timer = $Timer
 
+func _ready():
+	var shape = RectangleShape2D.new()
+	#var legSprite = $LegPoint.$Legs.$Sprite2D
+	#shape.size = Vector2(2 + legSprite.texture.get_width(),16 + legSprite.texture.get_height())
+	shape.size = Vector2(24,24)
+	get_node("CollisionShape2D").set_shape(shape)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

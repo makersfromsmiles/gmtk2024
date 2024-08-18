@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgewaysbbaekc"]
+
+[ext_resource type="Texture2D" uid="uid://bn54nr3q85hk1" path="res://Assets/sprites/ph_robot.png" id="1_6uefe"]
+[ext_resource type="Script" path="res://Objects/attachable_part.gd" id="1_phe18"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bq68r"]
+size = Vector2(16, 16)
+
+[node name="Michael" type="Area2D"]
+monitoring = false
+monitorable = false
+script = ExtResource("1_phe18")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6uefe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bq68r")

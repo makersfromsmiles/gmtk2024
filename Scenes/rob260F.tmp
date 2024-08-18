@@ -17,7 +17,11 @@ var previous_frame_y_velocity
 @onready var reset_timer = $Timer
 
 func _ready():
-	_create_collision_bounds()
+	var shape = RectangleShape2D.new()
+	var legSprite = get_node(\"LegPoint\").get_node(\"Legs\").get_node(\"Sprite2D\")
+	shape.size = Vector2(2 + legSprite.texture.get_width(),16 + legSprite.texture.get_height())
+	get_node(\"CollisionShape2D\").set_shape(shape)
+	print(shape)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -45,36 +49,9 @@ func _physics_process(delta: float) -> void:
 	previous_frame_y_velocity = velocity.y
 	move_and_slide()
 
+
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
-
-func _create_collision_bounds():
-	var shape = RectangleShape2D.new()
-	
-	var attachment_points = find_children(\"*\", \"AttachmentPoint\", true)
-	
-	var min_bound = Vector2(0, 0)
-	var max_bound = Vector2(0, 0)
-	
-	for point in attachment_points:
-		if not point.has_collision:
-			continue
-			
-		min_bound.x = min(min_bound.x, point.min_bound.x)
-		min_bound.y = min(min_bound.y, point.min_bound.y)
-		
-		max_bound.x = max(max_bound.x, point.max_bound.x)
-		max_bound.y = max(max_bound.y, point.max_bound.y)
-	
-	var size = max_bound - min_bound
-	var center = min_bound + size / 2
-	
-	# Currently, this method causes the player to float if they have arms. Should they Tetris, instead?
-	var collision_shape = get_node(\"CollisionShape2D\")
-	collision_shape.position = center
-	shape.size = size
-	
-	collision_shape.set_shape(shape)
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5irs"]
