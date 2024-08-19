@@ -1,21 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://721jngo25qux"]
+[gd_scene load_steps=7 format=3 uid="uid://721jngo25qux"]
 
 [ext_resource type="Script" path="res://Scripts/shove_arm.gd" id="1_nio0f"]
 [ext_resource type="Texture2D" uid="uid://dsaqbbaugu4t7" path="res://Assets/sprites/Arms/scoop.png" id="2_nuxu7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5m61"]
-size = Vector2(23.5, 14)
+size = Vector2(14.75, 23)
+
+[sub_resource type="Animation" id="Animation_qqlvv"]
+resource_name = "scoop"
+length = 0.1045
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scoop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(7, 3), Vector2(7, 15.235), Vector2(8.78, 5.655), Vector2(7, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scoop:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.652753, -0.164061, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_tk0ac"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scoop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scoop:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0oulg"]
+_data = {
+"RESET": SubResource("Animation_tk0ac"),
+"scoop": SubResource("Animation_qqlvv")
+}
 
 [node name="Shove Arm" type="Area2D"]
 script = ExtResource("1_nio0f")
 
 [node name="Scoop" type="Sprite2D" parent="."]
-position = Vector2(8, 2)
+position = Vector2(7, 3)
+scale = Vector2(0.875, 1.125)
 texture = ExtResource("2_nuxu7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12, 0)
+position = Vector2(7.625, 4.5)
 shape = SubResource("RectangleShape2D_q5m61")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0oulg")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

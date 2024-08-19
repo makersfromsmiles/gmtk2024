@@ -6,6 +6,7 @@ const SHOVE_STRENGTH = 200
 
 func activate():
 	if robot.can_control:
+		$AnimationPlayer.play("scoop")
 		if block:
 			if get_parent().name == "ArmPointL":
 				(block as BaseBlock).Shove(-1 * SHOVE_STRENGTH)
