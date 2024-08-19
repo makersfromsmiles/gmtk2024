@@ -9,6 +9,8 @@ var shape
 var min_bound
 var max_bound
 
+@onready var robot: CharacterBody2D = $"../.."
+
 func _ready():
 	parent = get_parent().name
 	collision_shape = get_node("CollisionShape2D")

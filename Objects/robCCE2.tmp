@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwxg4bpnhg0y3"]
+
+[ext_resource type="Script" path="res://Scripts/robot.gd" id="1_oapj2"]
+[ext_resource type="PackedScene" uid="uid://cjpw2w0irieji" path="res://Objects/attachment_point.tscn" id="1_oype8"]
+[ext_resource type="PackedScene" uid="uid://bcrd16k3fyxxh" path="res://Objects/robot_head.tscn" id="3_j0gc6"]
+[ext_resource type="PackedScene" uid="uid://dnomcotxkxl27" path="res://Objects/Arm Parts/arm_empty.tscn" id="4_02dj5"]
+[ext_resource type="PackedScene" uid="uid://c7xtt1m52l5lt" path="res://Objects/LegParts/jump_legs.tscn" id="5_qa53u"]
+
+[node name="Robot" type="CharacterBody2D"]
+script = ExtResource("1_oapj2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="HeadPoint" parent="." instance=ExtResource("1_oype8")]
+
+[node name="RobotHead" parent="HeadPoint" instance=ExtResource("3_j0gc6")]
+
+[node name="ArmPointL" parent="." instance=ExtResource("1_oype8")]
+position = Vector2(-8, 0)
+scale = Vector2(-1, 1)
+
+[node name="ArmEmpty" parent="ArmPointL" instance=ExtResource("4_02dj5")]
+
+[node name="ArmPointR" parent="." instance=ExtResource("1_oype8")]
+position = Vector2(8, 0)
+
+[node name="ArmEmpty" parent="ArmPointR" instance=ExtResource("4_02dj5")]
+
+[node name="LegPoint" parent="." instance=ExtResource("1_oype8")]
+position = Vector2(0, 8)
+
+[node name="JumpLegs" parent="." instance=ExtResource("5_qa53u")]
+position = Vector2(0, 8)

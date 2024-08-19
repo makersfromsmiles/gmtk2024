@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dub4lktfmp8gc"]
+
+[ext_resource type="Texture2D" uid="uid://b0t7gbpi7plbm" path="res://Assets/sprites/Environment/cracked block.png" id="1_i7kjo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nov5s"]
+size = Vector2(32, 32)
+
+[node name="Cracked Block" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i7kjo")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nov5s")

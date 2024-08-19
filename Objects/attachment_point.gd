@@ -8,6 +8,7 @@ var has_collision
 var min_bound
 var max_bound
 
+
 func _ready():
 	has_collision = false
 	

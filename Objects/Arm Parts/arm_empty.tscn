@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dvjv42anl6gee" path="res://Assets/sprites/Placeholders/Arms/ph_arm.png" id="2_ti00n"]
 
 [node name="ArmEmpty" type="Area2D"]
-monitoring = false
-monitorable = false
 script = ExtResource("1_o712o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

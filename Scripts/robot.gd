@@ -1,14 +1,15 @@
 extends CharacterBody2D
 
-const SPEED = 80.0
-const JUMP_VELOCITY = -200.0
-const KILL_VELOCITY_LIMIT = 380
 const CLIMB_VELOCITY = -250.0
+
+const KILL_DISTANCE_LIMIT = 79
+var last_known_y = 0
 
 var mid_jump = false;
 
 var can_control = true
 var previous_frame_y_velocity
+var previous_frame_x_velocity
 
 var can_jump = true
 
@@ -16,35 +17,19 @@ var can_jump = true
 
 func _ready():
 	_create_collision_bounds()
-
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	else:
-		if previous_frame_y_velocity > KILL_VELOCITY_LIMIT:
+	
+func _process(delta):
+	#Check for fall damage
+	if is_on_floor() && can_control:
+		#print(position.y - last_known_y)
+		if position.y - last_known_y > KILL_DISTANCE_LIMIT:
 			can_control = false
 			reset_timer.start()
-	
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and _can_climb():
-		velocity.y = CLIMB_VELOCITY
-		mid_jump = true
-
-	# Get the input direction and handle the movement/deceleration.
-	if can_control:
-		var direction := Input.get_axis("ui_left", "ui_right")
-		if direction:
-			velocity.x = direction * SPEED
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-	elif not is_on_floor() and not _can_move_midair():
-		velocity.x = 0.0
-	else:
-		velocity.x = lerp(velocity.x, 0.0, delta*4)
-		
-	previous_frame_y_velocity = velocity.y
-	move_and_slide()
+			last_known_y = position.y
+	elif not is_on_floor() && can_control:
+		if position.y < last_known_y: last_known_y = position.y
+		#Comment this last elif to make fall damage not include jumps
 	
 func _can_jump():
 	return is_on_floor() and can_control
@@ -61,7 +46,8 @@ func _on_timer_timeout() -> void:
 func _create_collision_bounds():
 	var shape = RectangleShape2D.new()
 	
-	var attachment_points = find_children("*", "AttachmentPoint", true)
+	#var attachment_points = find_children("*", "AttachmentPoint", true)
+	var attachment_points = [$HeadPoint, $LegPoint]
 	
 	var min_bound = Vector2(0, 0)
 	var max_bound = Vector2(0, 0)
