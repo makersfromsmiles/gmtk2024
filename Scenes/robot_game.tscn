@@ -116,6 +116,7 @@ sources/0 = SubResource("TileSetAtlasSource_u5irs")
 position = Vector2(578, 319)
 
 [node name="Robot" parent="." instance=ExtResource("1_w8g7q")]
+unique_name_in_owner = true
 position = Vector2(-1, 0)
 collision_layer = 2
 
