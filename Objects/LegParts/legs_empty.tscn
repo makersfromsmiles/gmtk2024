@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dt7rxts54h3ei" path="res://Assets/sprites/Placeholders/Legs/ph_legs.png" id="2_g27yk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bq68r"]
-size = Vector2(16, 16)
+size = Vector2(14, 16)
 
 [node name="LegsWheel" type="Area2D"]
 monitoring = false

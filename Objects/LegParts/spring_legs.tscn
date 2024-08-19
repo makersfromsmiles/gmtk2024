@@ -40,14 +40,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3p6ud"]
-size = Vector2(13, 16)
+size = Vector2(11, 16)
 
 [node name="Spring Legs" type="Area2D"]
 script = ExtResource("1_eupry")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.5, 8)
-scale = Vector2(0.6875, 1)
+position = Vector2(0.499999, 8)
+scale = Vector2(0.8125, 1)
 sprite_frames = SubResource("SpriteFrames_rj1qo")
 frame = 3
 frame_progress = 1.0

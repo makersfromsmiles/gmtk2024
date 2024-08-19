@@ -46,6 +46,5 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.stop()
 		$AnimatedSprite2D.play("default", 1.0, false)
 	
-	robot.previous_frame_y_velocity = robot.velocity.y
-	robot.previous_frame_x_velocity = robot.velocity.x
+	robot.calculate_xy(delta)
 	robot.move_and_slide()

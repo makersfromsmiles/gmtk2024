@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/jump_legs.gd" id="1_44nyp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3p6ud"]
-size = Vector2(16, 16)
+size = Vector2(14, 16)
 
 [node name="JumpLegs" type="Area2D"]
 script = ExtResource("1_44nyp")

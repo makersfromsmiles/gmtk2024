@@ -11,6 +11,9 @@ var can_control = true
 var previous_frame_y_velocity
 var previous_frame_x_velocity
 
+var knockback_velocity = Vector2(0,0)
+const KNOCKBACK_RECOVERY_SPEED = 4
+
 var can_jump = true
 
 @onready var reset_timer = $Timer
@@ -29,7 +32,6 @@ func _process(delta):
 			last_known_y = position.y
 	elif not is_on_floor() && can_control:
 		if position.y < last_known_y: last_known_y = position.y
-		#Comment this last elif to make fall damage not include jumps
 	
 func _can_jump():
 	return is_on_floor() and can_control
@@ -71,3 +73,10 @@ func _create_collision_bounds():
 	shape.size = size
 	
 	collision_shape.set_shape(shape)
+
+func calculate_xy(delta):
+	#Scripts that should be run at the end of every leg movement script
+	velocity += knockback_velocity
+	knockback_velocity = Vector2(lerp(knockback_velocity.x, 0.0, delta*KNOCKBACK_RECOVERY_SPEED), lerp(knockback_velocity.y, 0.0, delta*KNOCKBACK_RECOVERY_SPEED))
+	previous_frame_y_velocity = velocity.y
+	previous_frame_x_velocity = velocity.x

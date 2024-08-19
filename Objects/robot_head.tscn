@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bjak0tuunuriv" path="res://Assets/sprites/head.png" id="2_crrp8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bq68r"]
-size = Vector2(16, 14)
+size = Vector2(12, 14)
 
 [node name="RobotHead" type="Area2D"]
 monitoring = false

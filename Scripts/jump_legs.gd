@@ -29,5 +29,5 @@ func _physics_process(delta: float) -> void:
 	else:
 		robot.velocity.x = lerp(robot.velocity.x, 0.0, delta*4)
 		
-	robot.previous_frame_y_velocity = robot.velocity.y
+	robot.calculate_xy(delta)
 	robot.move_and_slide()
