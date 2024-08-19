@@ -1,10 +1,7 @@
 extends AttachablePart
 #variable "robot" can be used to refer to the player character
 
-const JUMP_VELOCITY = -250.0
-const SPEED = 100.0
-
-var anim = "walk"
+const SPEED = 200.0
 
 func activate():
 	#In this case, jumping is handled in the physics process
@@ -14,16 +11,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not robot.is_on_floor():
 		robot.velocity += robot.get_gravity() * delta
-		if anim != "jump":
-			$AnimatedSprite2D.play("jump", 1.0, false)
-			anim = "jump"
-	elif anim!= "walk":
-		$AnimatedSprite2D.play("default", 1.0, false)
-		anim = "walk"
-	
-	#Jump
-	if Input.is_action_just_pressed("ui_accept") and robot.is_on_floor() and robot.can_control:
-		robot.velocity.y = JUMP_VELOCITY
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	if robot.can_control:

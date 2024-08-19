@@ -18,7 +18,17 @@ var can_jump = true
 
 @onready var reset_timer = $Timer
 
+const LEGS = ["res://Objects/LegParts/wheel_legs.tscn","res://Objects/LegParts/jump_legs.tscn","res://Objects/LegParts/spring_legs.tscn"]
+const ARMS = ["res://Objects/Arm Parts/punch_arm.tscn"]
+var current_arm = 0
+var current_leg = 0
+
 func _ready():
+	current_arm = randi_range(0,len(ARMS)-1)
+	current_leg = randi_range(0,len(LEGS)-1)
+	
+	equip_arm(current_arm)
+	equip_leg(current_leg)
 	_create_collision_bounds()
 	
 func _process(delta):
@@ -26,12 +36,19 @@ func _process(delta):
 	if is_on_floor() && can_control:
 		#print(position.y - last_known_y)
 		if position.y - last_known_y > KILL_DISTANCE_LIMIT:
+			$AnimationPlayer.play("robot_die", -1, 1.0, false)
 			can_control = false
 			reset_timer.start()
 		else:
 			last_known_y = position.y
 	elif not is_on_floor() && can_control:
 		if position.y < last_known_y: last_known_y = position.y
+		
+	#Self destruct button
+	if Input.is_action_just_pressed("reset"):
+		$AnimationPlayer.play("robot_die", -1, 1.0, false)
+		can_control = false
+		reset_timer.start()
 	
 func _can_jump():
 	return is_on_floor() and can_control
@@ -76,7 +93,20 @@ func _create_collision_bounds():
 
 func calculate_xy(delta):
 	#Scripts that should be run at the end of every leg movement script
-	velocity += knockback_velocity
+	#velocity += knockback_velocity
+	position += knockback_velocity
 	knockback_velocity = Vector2(lerp(knockback_velocity.x, 0.0, delta*KNOCKBACK_RECOVERY_SPEED), lerp(knockback_velocity.y, 0.0, delta*KNOCKBACK_RECOVERY_SPEED))
 	previous_frame_y_velocity = velocity.y
 	previous_frame_x_velocity = velocity.x
+
+func equip_arm(arm_index):
+	var arm_scene = load(ARMS[arm_index])
+	var arm_instance = arm_scene.instantiate()
+	$ArmPointL.add_child(arm_instance)
+	arm_instance = arm_scene.instantiate()
+	$ArmPointR.add_child(arm_instance)
+	
+func equip_leg(leg_index):
+	var leg_scene = load(LEGS[leg_index])
+	var leg_instance = leg_scene.instantiate()
+	$LegPoint.add_child(leg_instance)

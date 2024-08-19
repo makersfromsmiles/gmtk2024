@@ -1,14 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cckfk0mg6yvm0"]
+[gd_scene load_steps=6 format=3 uid="uid://cckfk0mg6yvm0"]
 
 [ext_resource type="Texture2D" uid="uid://b0t7gbpi7plbm" path="res://Assets/sprites/Environment/cracked block.png" id="1_i7kjo"]
+[ext_resource type="Script" path="res://Scripts/cracked_block.gd" id="1_yqd8q"]
+[ext_resource type="Texture2D" uid="uid://cupkiv4y0brxw" path="res://Assets/sprites/Environment/block_particle.png" id="3_dh0wf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nov5s"]
 size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_367kq"]
+offsets = PackedFloat32Array(0, 0.813333)
+colors = PackedColorArray(0.92549, 0.545098, 0, 0.556863, 1, 1, 1, 1)
 
 [node name="Cracked Block" type="RigidBody2D"]
 show_behind_parent = true
 collision_layer = 3
 collision_mask = 5
+gravity_scale = 0.0
+script = ExtResource("1_yqd8q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 show_behind_parent = true
@@ -16,3 +24,14 @@ texture = ExtResource("1_i7kjo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_nov5s")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(1, -7)
+emitting = false
+amount = 16
+texture = ExtResource("3_dh0wf")
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+spread = 180.0
+initial_velocity_max = 226.33
+color_ramp = SubResource("Gradient_367kq")

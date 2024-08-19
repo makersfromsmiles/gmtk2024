@@ -1,42 +1,49 @@
-[gd_scene load_steps=9 format=3 uid="uid://8nb1v4ryc14p"]
+[gd_scene load_steps=10 format=3 uid="uid://8nb1v4ryc14p"]
 
 [ext_resource type="Script" path="res://Scripts/spring_legs.gd" id="1_eupry"]
 [ext_resource type="Texture2D" uid="uid://2082pus74g0e" path="res://Assets/sprites/Legs/spring pad.png" id="2_shiu7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3okky"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgl7i"]
 atlas = ExtResource("2_shiu7")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(0, 0, 16, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_meg25"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oi0a"]
 atlas = ExtResource("2_shiu7")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(16, 0, 16, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vcdfp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_37c26"]
 atlas = ExtResource("2_shiu7")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(32, 0, 16, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0dthn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r624p"]
 atlas = ExtResource("2_shiu7")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(48, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjmiv"]
+atlas = ExtResource("2_shiu7")
+region = Rect2(64, 0, 16, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rj1qo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3okky")
+"texture": SubResource("AtlasTexture_rgl7i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_meg25")
+"texture": SubResource("AtlasTexture_1oi0a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vcdfp")
+"texture": SubResource("AtlasTexture_37c26")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0dthn")
+"texture": SubResource("AtlasTexture_r624p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjmiv")
 }],
 "loop": false,
 "name": &"default",
-"speed": 6.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3p6ud"]
@@ -46,10 +53,10 @@ size = Vector2(11, 16)
 script = ExtResource("1_eupry")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.499999, 8)
+position = Vector2(0, 9)
 scale = Vector2(0.8125, 1)
 sprite_frames = SubResource("SpriteFrames_rj1qo")
-frame = 3
+frame = 4
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

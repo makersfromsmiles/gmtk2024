@@ -9,6 +9,7 @@ size = Vector2(32, 32)
 show_behind_parent = true
 collision_layer = 3
 collision_mask = 5
+gravity_scale = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 show_behind_parent = true
