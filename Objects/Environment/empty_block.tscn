@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dub4lktfmp8gc"]
+[gd_scene load_steps=4 format=3 uid="uid://dub4lktfmp8gc"]
 
+[ext_resource type="Script" path="res://Scripts/base_block.gd" id="1_hpqck"]
 [ext_resource type="Texture2D" uid="uid://d0vkqm3jlsu3c" path="res://Assets/sprites/Environment/block_default.png" id="1_tuf0s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nov5s"]
@@ -10,6 +11,7 @@ show_behind_parent = true
 collision_layer = 3
 collision_mask = 5
 gravity_scale = 0.0
+script = ExtResource("1_hpqck")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 show_behind_parent = true

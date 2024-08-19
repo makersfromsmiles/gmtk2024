@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends BaseBlock
 
 func destroy():
 	$CPUParticles2D.emitting = true

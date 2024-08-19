@@ -19,7 +19,7 @@ var can_jump = true
 @onready var reset_timer = $Timer
 
 const LEGS = ["res://Objects/LegParts/wheel_legs.tscn","res://Objects/LegParts/jump_legs.tscn","res://Objects/LegParts/spring_legs.tscn"]
-const ARMS = ["res://Objects/Arm Parts/punch_arm.tscn"]
+const ARMS = ["res://Objects/Arm Parts/punch_arm.tscn","res://Objects/Arm Parts/shove_arm.tscn"]
 var current_arm = 0
 var current_leg = 0
 
