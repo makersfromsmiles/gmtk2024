@@ -10,8 +10,7 @@ func activate():
 		$AnimatedSprite2D.play("default", 1.0, false)
 		#Destroy blocks
 		if block: 
-			match block.name:
-				"Cracked Block":
+			if block.name.contains("Cracked Block"):
 					block.destroy()
 		
 		#Bounce off walls

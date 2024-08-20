@@ -27,9 +27,7 @@ func _ready():
 	current_arm = randi_range(0,len(ARMS)-1)
 	current_leg = randi_range(0,len(LEGS)-1)
 	
-	equip_arm(current_arm)
-	equip_leg(current_leg)
-	_create_collision_bounds()
+	equip_parts(current_arm,current_leg)
 	
 func _process(delta):
 	#Check for fall damage
@@ -62,24 +60,35 @@ func _can_move_midair():
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
 
-func _create_collision_bounds():
+func equip_parts(arm_index, leg_index):
+	#Equip arms
+	var arm_scene = load(ARMS[arm_index])
+	var arm_instance = arm_scene.instantiate()
+	$ArmPointL.add_child(arm_instance)
+	arm_instance = arm_scene.instantiate()
+	$ArmPointR.add_child(arm_instance)
+	
+	#Equip leg
+	var leg_scene = load(LEGS[leg_index])
+	var leg_instance = leg_scene.instantiate()
+	$LegPoint.add_child(leg_instance)
+	
+	#Create collision bounds
 	var shape = RectangleShape2D.new()
-	
-	#var attachment_points = find_children("*", "AttachmentPoint", true)
-	var attachment_points = [$HeadPoint, $LegPoint]
-	
+	var point_parts = [$HeadPoint.get_child(0, false), $LegPoint.get_child(0, false)]
 	var min_bound = Vector2(0, 0)
 	var max_bound = Vector2(0, 0)
 	
-	for point in attachment_points:
-		if not point.has_collision:
+	for part in point_parts:
+		if not part is Area2D:
 			continue
-			
-		min_bound.x = min(min_bound.x, point.min_bound.x)
-		min_bound.y = min(min_bound.y, point.min_bound.y)
+		var attachment_point_position = part.get_parent().position
 		
-		max_bound.x = max(max_bound.x, point.max_bound.x)
-		max_bound.y = max(max_bound.y, point.max_bound.y)
+		min_bound.x = min(min_bound.x, part.min_bound.x)+attachment_point_position.x
+		min_bound.y = min(min_bound.y, part.min_bound.y)+attachment_point_position.y
+		
+		max_bound.x = max(max_bound.x, part.max_bound.x)+attachment_point_position.x
+		max_bound.y = max(max_bound.y, part.max_bound.y)+attachment_point_position.y
 	
 	var size = max_bound - min_bound
 	var center = min_bound + size / 2
@@ -98,15 +107,3 @@ func calculate_xy(delta):
 	knockback_velocity = Vector2(lerp(knockback_velocity.x, 0.0, delta*KNOCKBACK_RECOVERY_SPEED), lerp(knockback_velocity.y, 0.0, delta*KNOCKBACK_RECOVERY_SPEED))
 	previous_frame_y_velocity = velocity.y
 	previous_frame_x_velocity = velocity.x
-
-func equip_arm(arm_index):
-	var arm_scene = load(ARMS[arm_index])
-	var arm_instance = arm_scene.instantiate()
-	$ArmPointL.add_child(arm_instance)
-	arm_instance = arm_scene.instantiate()
-	$ArmPointR.add_child(arm_instance)
-	
-func equip_leg(leg_index):
-	var leg_scene = load(LEGS[leg_index])
-	var leg_instance = leg_scene.instantiate()
-	$LegPoint.add_child(leg_instance)
