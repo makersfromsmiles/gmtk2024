@@ -96,6 +96,7 @@ swap_arm={
 2d_physics/layer_1="Physics"
 2d_physics/layer_2="Blocks"
 2d_physics/layer_3="Player Arms"
+2d_physics/layer_4="Water"
 
 [rendering]
 

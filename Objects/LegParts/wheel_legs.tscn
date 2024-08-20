@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dr6algp6ly5rb"]
+[gd_scene load_steps=11 format=3 uid="uid://ys1f8gkc2rvk"]
 
 [ext_resource type="Script" path="res://Scripts/wheel_legs.gd" id="1_igep8"]
 [ext_resource type="Texture2D" uid="uid://rlx3500fmmht" path="res://Assets/sprites/Legs/Wheel_Spin_Animation-Sheet.png" id="2_dxxa0"]
@@ -54,6 +54,7 @@ offsets = PackedFloat32Array(0.0466667, 0.133333)
 colors = PackedColorArray(1, 1, 1, 1, 0.823529, 0.823529, 0.823529, 0)
 
 [node name="WheelLegs" type="Area2D"]
+collision_mask = 9
 script = ExtResource("1_igep8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -74,3 +75,14 @@ spread = 180.0
 initial_velocity_min = 151.52
 initial_velocity_max = 191.92
 color_ramp = SubResource("Gradient_7d1ic")
+
+[node name="WaterChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterChecker"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_3p6ud")
+
+[connection signal="body_entered" from="WaterChecker" to="." method="_on_water_checker_body_entered"]
+[connection signal="body_exited" from="WaterChecker" to="." method="_on_water_checker_body_exited"]
