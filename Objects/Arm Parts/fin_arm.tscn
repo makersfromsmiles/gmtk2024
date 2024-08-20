@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceijkymiarpxd"]
+
+[ext_resource type="Script" path="res://Scripts/fin_arm.gd" id="1_gbn78"]
+[ext_resource type="Texture2D" uid="uid://b40tm8yufox0d" path="res://Assets/sprites/Arms/Fin.png" id="2_g3ci5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qm85"]
+size = Vector2(20, 15)
+
+[node name="Fin Arm" type="Area2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_gbn78")
+
+[node name="Fin" type="Sprite2D" parent="."]
+position = Vector2(8, 0)
+texture = ExtResource("2_g3ci5")
+
+[node name="WaterDetector" type="CollisionShape2D" parent="."]
+position = Vector2(10, 0.5)
+shape = SubResource("RectangleShape2D_6qm85")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
