@@ -10,4 +10,5 @@ func process(delta):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Robot":
-		Global.checkpoint_xy = position
+		pass
+		#Global.checkpoint_xy = position
