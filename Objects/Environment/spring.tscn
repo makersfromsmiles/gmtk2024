@@ -1,0 +1,117 @@
+[gd_scene load_steps=15 format=3 uid="uid://cqss5qu11ca6"]
+
+[ext_resource type="Script" path="res://Scripts/spring.gd" id="1_ykw4m"]
+[ext_resource type="Texture2D" uid="uid://2082pus74g0e" path="res://Assets/sprites/Legs/spring pad.png" id="2_p6os5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rwl3"]
+atlas = ExtResource("2_p6os5")
+region = Rect2(0, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ui30"]
+atlas = ExtResource("2_p6os5")
+region = Rect2(16, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5kfa"]
+atlas = ExtResource("2_p6os5")
+region = Rect2(32, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gbli"]
+atlas = ExtResource("2_p6os5")
+region = Rect2(48, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi6gl"]
+atlas = ExtResource("2_p6os5")
+region = Rect2(64, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1supg"]
+atlas = ExtResource("2_p6os5")
+region = Rect2(64, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya0ma"]
+atlas = ExtResource("2_p6os5")
+region = Rect2(48, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onbn7"]
+atlas = ExtResource("2_p6os5")
+region = Rect2(32, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypwaa"]
+atlas = ExtResource("2_p6os5")
+region = Rect2(16, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxvd7"]
+atlas = ExtResource("2_p6os5")
+region = Rect2(0, 0, 16, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1qn13"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rwl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ui30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5kfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gbli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi6gl")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1supg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya0ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onbn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypwaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxvd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onbn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya0ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1supg")
+}],
+"loop": false,
+"name": &"Spring",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vo5le"]
+size = Vector2(20, 8)
+
+[node name="Spring" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_ykw4m")
+
+[node name="SpringSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+rotation = -3.14159
+sprite_frames = SubResource("SpriteFrames_1qn13")
+animation = &"Spring"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_vo5le")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
