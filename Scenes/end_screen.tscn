@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dw2dtidbjdeug"]
+[gd_scene load_steps=10 format=3 uid="uid://dohthds3222wq"]
 
 [ext_resource type="Script" path="res://Scenes/end_screen.gd" id="1_oumlu"]
 [ext_resource type="Texture2D" uid="uid://ch0seyfma7wxu" path="res://Assets/sprites/Environment/goal_flag.png" id="2_qev6f"]

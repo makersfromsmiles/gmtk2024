@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://m50g6md6mlww"]
+[gd_scene load_steps=12 format=4 uid="uid://m50g6md6mlww"]
 
 [ext_resource type="PackedScene" uid="uid://bwxg4bpnhg0y3" path="res://Objects/robot.tscn" id="1_jw8hs"]
 [ext_resource type="Texture2D" uid="uid://dgdmkf21ukhfb" path="res://Assets/UI/controls.png" id="2_iwsyp"]
 [ext_resource type="Texture2D" uid="uid://b72enbux0cidy" path="res://Assets/sprites/tiles.png" id="3_ywpkn"]
 [ext_resource type="Script" path="res://Scenes/parallax_background.gd" id="4_sskf8"]
 [ext_resource type="Texture2D" uid="uid://djy3br1smwron" path="res://Assets/backgrounds/gmtk-parallax-cloud.png" id="5_dps76"]
+[ext_resource type="AudioStream" uid="uid://dwf3eewb8gnpq" path="res://Assets/music/technojester.mp3" id="6_hlm2u"]
 [ext_resource type="Texture2D" uid="uid://cpl4r6l4l44xp" path="res://Assets/backgrounds/blue.png" id="6_qu5bo"]
 [ext_resource type="PackedScene" uid="uid://cckfk0mg6yvm0" path="res://Objects/Environment/cracked_block.tscn" id="7_xrgkk"]
 [ext_resource type="PackedScene" uid="uid://dksi6gxjjtxbq" path="res://Objects/checkpoint.tscn" id="8_vmkgv"]
@@ -167,6 +168,10 @@ scale = Vector2(38.264, 29.3808)
 texture = ExtResource("6_qu5bo")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_hlm2u")
+volume_db = -14.857
+autoplay = true
+parameters/looping = true
 
 [node name="TileMapLayer0" type="TileMapLayer" parent="."]
 use_parent_material = true

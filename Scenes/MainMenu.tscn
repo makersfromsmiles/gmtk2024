@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bs30wu0wx065k" path="res://Assets/sprites/Environment/Screenshot_2202.png" id="2_r8bsb"]
 [ext_resource type="Script" path="res://Scenes/start.gd" id="2_r35hq"]
 [ext_resource type="Texture2D" uid="uid://cd0dixt23utdk" path="res://Assets/sprites/gmtk2024-logo.png" id="3_agy4k"]
-[ext_resource type="AudioStream" uid="uid://ld8rh4mlojt7" path="res://Assets/music/gmtk2024-titlescreen.mp3" id="4_ww643"]
+[ext_resource type="AudioStream" uid="uid://cvb0f1jbxqw1f" path="res://Assets/music/remaking recreation ...for level.mp3" id="5_1dys4"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -78,7 +78,7 @@ focus_neighbor_bottom = NodePath("../Start")
 text = "Exit"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_ww643")
+stream = ExtResource("5_1dys4")
 volume_db = -0.99
 autoplay = true
 parameters/looping = true

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cpl4r6l4l44xp" path="res://Assets/backgrounds/blue.png" id="5_7wrud"]
 [ext_resource type="Texture2D" uid="uid://dgdmkf21ukhfb" path="res://Assets/UI/controls.png" id="8_5qa8i"]
 [ext_resource type="AudioStream" uid="uid://dwf3eewb8gnpq" path="res://Assets/music/technojester.mp3" id="8_mh1bn"]
-[ext_resource type="PackedScene" uid="uid://bokh0cnnp075l" path="res://Objects/checkpoint.tscn" id="10_m0dlw"]
+[ext_resource type="PackedScene" uid="uid://dksi6gxjjtxbq" path="res://Objects/checkpoint.tscn" id="10_m0dlw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5irs"]
 texture = ExtResource("3_v1l0v")

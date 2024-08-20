@@ -9,8 +9,8 @@ func process(delta):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Robot":
-		var current_scene_file = get_tree().current_scene.scene_file_path
-		var next_level_number = current_scene_file.to_int() = 1
-		
-		var next_level_path = "res"
+		if get_tree().root.name == "RobotGame":
+			get_tree().change_scene_to_file("res://Scenes/funny_level1.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Scenes/End.tscn")
 		#Global.checkpoint_xy = position
