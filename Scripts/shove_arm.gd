@@ -2,7 +2,7 @@ extends AttachablePart
 
 var block
 
-const SHOVE_STRENGTH = 200
+const SHOVE_STRENGTH = 16
 
 func activate():
 	if robot.can_control:

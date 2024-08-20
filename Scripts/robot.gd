@@ -22,6 +22,8 @@ const KNOCKBACK_RECOVERY_SPEED = 4
 
 var can_jump = true
 
+var checkpoint_xy = Vector2(0,0)
+
 @onready var reset_timer = $Timer
 
 const LEGS = ["res://Objects/LegParts/wheel_legs.tscn","res://Objects/LegParts/jump_legs.tscn","res://Objects/LegParts/spring_legs.tscn"]
@@ -30,6 +32,7 @@ var current_arm = 0
 var current_leg = 0
 
 func _ready():
+	
 	current_arm = randi_range(0,len(ARMS)-1)
 	current_leg = randi_range(0,len(LEGS)-1)
 	
@@ -80,6 +83,9 @@ func _can_move_midair():
 
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
+	#position = checkpoint_xy
+	#$AnimationPlayer.play("RESET")
+	#can_control = true
 
 func equip_parts(arm_index, leg_index):
 	#Equip arms

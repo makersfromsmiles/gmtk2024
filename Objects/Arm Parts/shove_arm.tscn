@@ -4,7 +4,34 @@
 [ext_resource type="Texture2D" uid="uid://dsaqbbaugu4t7" path="res://Assets/sprites/Arms/scoop.png" id="2_nuxu7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5m61"]
-size = Vector2(14.75, 32)
+size = Vector2(18.75, 26)
+
+[sub_resource type="Animation" id="Animation_tk0ac"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Scoop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Scoop:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_qqlvv"]
 resource_name = "scoop"
@@ -34,33 +61,6 @@ tracks/1/keys = {
 "values": [0.0, 0.652753, -0.164061, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_tk0ac"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Scoop:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(7, 3)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Scoop:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0oulg"]
 _data = {
 "RESET": SubResource("Animation_tk0ac"),
@@ -76,7 +76,7 @@ scale = Vector2(0.875, 1.125)
 texture = ExtResource("2_nuxu7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.625, 9)
+position = Vector2(9.625, 6)
 shape = SubResource("RectangleShape2D_q5m61")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

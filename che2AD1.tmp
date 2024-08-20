@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://dksi6gxjjtxbq"]
+
+[ext_resource type="Texture2D" uid="uid://ch0seyfma7wxu" path="res://Assets/sprites/goal_flag.png" id="1_of7t8"]
+[ext_resource type="Script" path="res://checkpoint.gd" id="1_yrucf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24kau"]
+atlas = ExtResource("1_of7t8")
+region = Rect2(0, 42, 22, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uvkd"]
+atlas = ExtResource("1_of7t8")
+region = Rect2(22, 42, 22, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vakvg"]
+atlas = ExtResource("1_of7t8")
+region = Rect2(44, 0, 22, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie4td"]
+atlas = ExtResource("1_of7t8")
+region = Rect2(22, 0, 22, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hx80"]
+atlas = ExtResource("1_of7t8")
+region = Rect2(0, 0, 22, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wkm7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24kau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uvkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vakvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie4td")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hx80")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24kau")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie4td")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hx80")
+}],
+"loop": true,
+"name": &"wave",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f32ka"]
+size = Vector2(35, 50)
+
+[node name="Checkpoint" type="Node2D"]
+script = ExtResource("1_yrucf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(11, -21)
+sprite_frames = SubResource("SpriteFrames_0wkm7")
+animation = &"inactive"
+autoplay = "inactive"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(11, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6.5, -4)
+shape = SubResource("RectangleShape2D_f32ka")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
