@@ -9,7 +9,7 @@ func process(delta):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Robot":
-		if get_tree().root.name == "RobotGame":
+		if get_tree().get_root().get_node("RobotGame"):
 			get_tree().change_scene_to_file("res://Scenes/funny_level1.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/End.tscn")
