@@ -23,19 +23,29 @@ texture = ExtResource("2_r8bsb")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 34.0
-offset_right = 491.0
-offset_bottom = 130.0
-theme_override_font_sizes/font_size = 70
-text = "Build to Scale"
+offset_left = 16.0
+offset_top = 4.0
+offset_right = 471.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 68
+text = "Built of Scrap,"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 67.0
+offset_right = 525.0
+offset_bottom = 163.0
+theme_override_font_sizes/font_size = 68
+text = "Yet I Must Scale"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 121.0
-offset_right = 446.0
-offset_bottom = 217.0
+offset_left = 35.0
+offset_top = 148.0
+offset_right = 434.0
+offset_bottom = 244.0
+scale = Vector2(0.688363, 0.619691)
 theme_override_font_sizes/font_size = 35
 text = "by Makers From Smile's"
 
