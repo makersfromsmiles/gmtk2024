@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://s8sune70h8ml"]
+[gd_scene load_steps=8 format=4 uid="uid://s8sune70h8ml"]
 
 [ext_resource type="PackedScene" uid="uid://bwxg4bpnhg0y3" path="res://Objects/robot.tscn" id="1_w8g7q"]
 [ext_resource type="Texture2D" uid="uid://b72enbux0cidy" path="res://Assets/sprites/tiles.png" id="3_203pr"]
 [ext_resource type="PackedScene" uid="uid://cckfk0mg6yvm0" path="res://Objects/Environment/cracked_block.tscn" id="4_ssx8d"]
 [ext_resource type="PackedScene" uid="uid://dkfvvdfaajkkr" path="res://Scripts/test_item.tscn" id="4_ur0qx"]
+[ext_resource type="PackedScene" uid="uid://cqss5qu11ca6" path="res://Objects/Environment/spring.tscn" id="5_5kh3m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5irs"]
 texture = ExtResource("3_203pr")
@@ -155,5 +156,8 @@ mass = 0.001
 [node name="Cracked Block2" parent="." instance=ExtResource("4_ssx8d")]
 position = Vector2(656, 128)
 mass = 0.001
+
+[node name="Spring" parent="." instance=ExtResource("5_5kh3m")]
+position = Vector2(88, 160)
 
 [connection signal="timeout" from="Robot/Timer" to="Robot" method="_on_timer_timeout"]

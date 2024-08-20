@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Robot
+
 const CLIMB_VELOCITY = -250.0
 
 const KILL_DISTANCE_LIMIT = 79
