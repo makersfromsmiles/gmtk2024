@@ -13,7 +13,7 @@ func activate():
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not robot.is_on_floor():
-		robot.velocity += robot.get_gravity() * delta
+		robot.velocity += robot.gravity * delta
 		if anim != "jump":
 			$AnimatedSprite2D.play("jump", 1.0, false)
 			anim = "jump"
@@ -23,7 +23,10 @@ func _physics_process(delta: float) -> void:
 	
 	#Jump
 	if Input.is_action_just_pressed("ui_accept") and robot.is_on_floor() and robot.can_control:
-		robot.velocity.y = JUMP_VELOCITY
+		if !robot.in_water: 
+			robot.velocity.y = JUMP_VELOCITY 
+		else: 
+			robot.velocity.y = JUMP_VELOCITY/1.4
 
 	# Get the input direction and handle the movement/deceleration.
 	if robot.can_control:

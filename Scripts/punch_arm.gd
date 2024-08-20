@@ -19,6 +19,7 @@ func activate():
 				robot.knockback_velocity.x = KNOCKBACK_STRENGTH
 			else:
 				robot.knockback_velocity.x = KNOCKBACK_STRENGTH*-1
+			robot.velocity.y = robot.velocity.y/2
 			robot.knockback_velocity.y = KNOCKBACK_STRENGTH*-0.6
 
 func _on_body_entered(body: Node2D) -> void:

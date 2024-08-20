@@ -13,7 +13,7 @@ func activate():
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not robot.is_on_floor():
-		robot.velocity += robot.get_gravity() * delta
+		robot.velocity += robot.gravity * delta
 		
 	# Get the input direction and handle the movement/deceleration.
 	if robot.can_control:

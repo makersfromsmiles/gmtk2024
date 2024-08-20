@@ -15,7 +15,7 @@ func activate():
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not robot.is_on_floor():
-		robot.velocity += robot.get_gravity() * delta
+		robot.velocity += robot.gravity * delta
 	else:
 		#Bounce higher and increase speed if space is held down
 		if Input.is_action_pressed("ui_accept") and robot.is_on_floor() and robot.can_control:

@@ -4,6 +4,10 @@ class_name Robot
 
 const CLIMB_VELOCITY = -250.0
 
+var gravity = get_gravity()
+var in_water = false
+const WATER_GRAVITY_SCALE = 0.3
+
 const KILL_DISTANCE_LIMIT = 79
 var last_known_y = 0
 
@@ -32,8 +36,8 @@ func _ready():
 	equip_parts(current_arm,current_leg)
 	
 func _process(delta):
-	#Check for fall damage
-	if is_on_floor() && can_control:
+	#Check for fall damage, doesn't happen in water
+	if is_on_floor() && can_control && !in_water:
 		#print(position.y - last_known_y)
 		if position.y - last_known_y > KILL_DISTANCE_LIMIT:
 			$AnimationPlayer.play("robot_die", -1, 1.0, false)
@@ -49,6 +53,21 @@ func _process(delta):
 		$AnimationPlayer.play("robot_die", -1, 1.0, false)
 		can_control = false
 		reset_timer.start()
+		
+	#Swap parts
+	if Input.is_action_just_pressed("swap_arm"):
+		if current_arm == len(ARMS)-1:
+			current_arm = 0
+		else:
+			current_arm += 1
+		equip_parts(current_arm, current_leg)
+		
+	if Input.is_action_just_pressed("swap_leg"):
+		if current_leg == len(LEGS)-1:
+			current_leg = 0
+		else:
+			current_leg += 1
+		equip_parts(current_arm, current_leg)
 	
 func _can_jump():
 	return is_on_floor() and can_control
@@ -64,6 +83,10 @@ func _on_timer_timeout() -> void:
 
 func equip_parts(arm_index, leg_index):
 	#Equip arms
+	var old_arm = $ArmPointL.get_child(0, false)
+	if old_arm: old_arm.queue_free()
+	old_arm = $ArmPointR.get_child(0, false)
+	if old_arm: old_arm.queue_free()
 	var arm_scene = load(ARMS[arm_index])
 	var arm_instance = arm_scene.instantiate()
 	$ArmPointL.add_child(arm_instance)
@@ -71,6 +94,8 @@ func equip_parts(arm_index, leg_index):
 	$ArmPointR.add_child(arm_instance)
 	
 	#Equip leg
+	var old_leg = $LegPoint.get_child(0, false)
+	if old_leg: old_leg.queue_free()
 	var leg_scene = load(LEGS[leg_index])
 	var leg_instance = leg_scene.instantiate()
 	$LegPoint.add_child(leg_instance)
@@ -104,8 +129,9 @@ func equip_parts(arm_index, leg_index):
 
 func calculate_xy(delta):
 	#Scripts that should be run at the end of every leg movement script
-	#velocity += knockback_velocity
+	#Apply knockback
 	position += knockback_velocity
 	knockback_velocity = Vector2(lerp(knockback_velocity.x, 0.0, delta*KNOCKBACK_RECOVERY_SPEED), lerp(knockback_velocity.y, 0.0, delta*KNOCKBACK_RECOVERY_SPEED))
+	
 	previous_frame_y_velocity = velocity.y
 	previous_frame_x_velocity = velocity.x

@@ -3,10 +3,12 @@ extends AttachablePart
 var in_water_count = 0
 
 const Y_MOMENTUM = -6
-const X_MOMENTUM = 3
+const X_MOMENTUM = 2
 
 func activate():
+	$AnimationPlayer.play("fin flip", -1, 1.0, false)
 	if robot.can_control and in_water_count > 0:
+		robot.velocity.y = robot.velocity.y/2
 		robot.knockback_velocity.y = Y_MOMENTUM
 		if get_parent().name == "ArmPointL":
 			robot.knockback_velocity.x = X_MOMENTUM
