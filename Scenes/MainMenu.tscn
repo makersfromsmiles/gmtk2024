@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://wy5xyrt65ldb"]
+[gd_scene load_steps=6 format=3 uid="uid://wy5xyrt65ldb"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_003dt"]
+[ext_resource type="Texture2D" uid="uid://bs30wu0wx065k" path="res://Assets/sprites/Environment/Screenshot_2202.png" id="2_r8bsb"]
 [ext_resource type="Script" path="res://Scenes/start.gd" id="2_r35hq"]
 [ext_resource type="Texture2D" uid="uid://cd0dixt23utdk" path="res://Assets/sprites/gmtk2024-logo.png" id="3_agy4k"]
 [ext_resource type="AudioStream" uid="uid://ld8rh4mlojt7" path="res://Assets/music/gmtk2024-titlescreen.mp3" id="4_ww643"]
@@ -18,6 +19,7 @@ script = ExtResource("1_003dt")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+texture = ExtResource("2_r8bsb")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

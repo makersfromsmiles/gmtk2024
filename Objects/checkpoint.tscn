@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dksi6gxjjtxbq"]
+[gd_scene load_steps=10 format=3 uid="uid://bokh0cnnp075l"]
 
-[ext_resource type="Texture2D" uid="uid://ch0seyfma7wxu" path="res://Assets/sprites/goal_flag.png" id="1_of7t8"]
+[ext_resource type="Texture2D" uid="uid://ch0seyfma7wxu" path="res://Assets/sprites/Environment/goal_flag.png" id="1_of7t8"]
 [ext_resource type="Script" path="res://checkpoint.gd" id="1_yrucf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24kau"]
@@ -76,6 +76,7 @@ position = Vector2(-11, 27)
 sprite_frames = SubResource("SpriteFrames_0wkm7")
 animation = &"inactive"
 autoplay = "inactive"
+frame_progress = 0.567006
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-11, 27)
