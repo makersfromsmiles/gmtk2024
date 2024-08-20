@@ -48,6 +48,8 @@ func _process(delta):
 			reset_timer.start()
 		else:
 			last_known_y = position.y
+	elif in_water:
+		last_known_y = position.y
 	elif not is_on_floor() && can_control:
 		if position.y < last_known_y: last_known_y = position.y
 		
