@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ba8obf647ds3u"
+path="res://.godot/imported/tin jump.mp3-4b91709a1b43cee7e48182e56667339c.mp3str"
+
+[deps]
+
+source_file="res://Assets/sounds/tin jump.mp3"
+dest_files=["res://.godot/imported/tin jump.mp3-4b91709a1b43cee7e48182e56667339c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

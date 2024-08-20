@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvb0f1jbxqw1f"
+path="res://.godot/imported/remaking recreation ...for level.mp3-febcbb345247dc1c237c87eb1ebaffb6.mp3str"
+
+[deps]
+
+source_file="res://Assets/music/remaking recreation ...for level.mp3"
+dest_files=["res://.godot/imported/remaking recreation ...for level.mp3-febcbb345247dc1c237c87eb1ebaffb6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

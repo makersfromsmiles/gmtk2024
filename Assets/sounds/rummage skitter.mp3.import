@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://e2f8rn6j83m5"
+path="res://.godot/imported/rummage skitter.mp3-59bf1d55839cea55ba4c062802c2dd8f.mp3str"
+
+[deps]
+
+source_file="res://Assets/sounds/rummage skitter.mp3"
+dest_files=["res://.godot/imported/rummage skitter.mp3-59bf1d55839cea55ba4c062802c2dd8f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

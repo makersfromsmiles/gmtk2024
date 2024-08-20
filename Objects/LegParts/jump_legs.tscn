@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7xtt1m52l5lt"]
+[gd_scene load_steps=14 format=3 uid="uid://c7xtt1m52l5lt"]
 
 [ext_resource type="Script" path="res://Scripts/jump_legs.gd" id="1_44nyp"]
 [ext_resource type="Texture2D" uid="uid://islrcv8bgwtg" path="res://Assets/sprites/Legs/jump legs.png" id="2_woslg"]
 [ext_resource type="Texture2D" uid="uid://bbrxfbi704jp8" path="res://Assets/sprites/Legs/jump legs jump.png" id="3_46qoe"]
+[ext_resource type="AudioStream" uid="uid://ba8obf647ds3u" path="res://Assets/sounds/tin jump.mp3" id="4_au5mm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p3mce"]
 atlas = ExtResource("2_woslg")
@@ -83,3 +84,6 @@ frame_progress = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_3p6ud")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_au5mm")
