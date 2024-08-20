@@ -119,7 +119,6 @@ position = Vector2(567, 330)
 [node name="Robot" parent="." instance=ExtResource("1_w8g7q")]
 unique_name_in_owner = true
 position = Vector2(8, 8)
-collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Robot"]
 position = Vector2(8, 8)
@@ -144,11 +143,9 @@ position = Vector2(432, 224)
 [node name="Cracked Block" parent="." instance=ExtResource("4_ssx8d")]
 position = Vector2(96, 32)
 mass = 0.001
-freeze = true
 
 [node name="Cracked Block2" parent="." instance=ExtResource("4_ssx8d")]
 position = Vector2(656, 128)
 mass = 0.001
-freeze = true
 
 [connection signal="timeout" from="Robot/Timer" to="Robot" method="_on_timer_timeout"]
