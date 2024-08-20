@@ -1,7 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceijkymiarpxd"]
+[gd_scene load_steps=11 format=3 uid="uid://ceijkymiarpxd"]
 
 [ext_resource type="Script" path="res://Scripts/fin_arm.gd" id="1_gbn78"]
-[ext_resource type="Texture2D" uid="uid://b40tm8yufox0d" path="res://Assets/sprites/Arms/Fin.png" id="2_g3ci5"]
+[ext_resource type="Texture2D" uid="uid://c4rw3yvdwlkmd" path="res://Assets/sprites/Arms/finanimation.png" id="2_p03dm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7oiv5"]
+atlas = ExtResource("2_p03dm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2babv"]
+atlas = ExtResource("2_p03dm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jytwa"]
+atlas = ExtResource("2_p03dm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ryycm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7oiv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2babv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jytwa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qm85"]
 size = Vector2(23, 31)
@@ -96,9 +125,11 @@ collision_layer = 4
 collision_mask = 8
 script = ExtResource("1_gbn78")
 
-[node name="Fin" type="Sprite2D" parent="."]
+[node name="Fin" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, 0)
-texture = ExtResource("2_g3ci5")
+sprite_frames = SubResource("SpriteFrames_ryycm")
+autoplay = "default"
+frame_progress = 0.209579
 
 [node name="WaterDetector" type="CollisionShape2D" parent="."]
 position = Vector2(8.5, 6.5)
